@@ -23,11 +23,10 @@ System	&	technology	used:
 10.Rest services (Commented for now)
 
 # Credentials
-Username : admin Password : admin
+Username : admin Password : admin123
 
 
 # Store Executive Login
-Use the Credentials username : "admin" and password : "admin123" to . login to the application 
 
 ![Alt Text](http://i64.tinypic.com/2qk1182.jpg)
 
