@@ -41,3 +41,10 @@ If any new customer shops at store and Store person unable to view his details ,
 ![Alt Text](http://i63.tinypic.com/2emd83o.jpg)
 
 ![Alt Text](http://i63.tinypic.com/2hi8rkg.jpg)
+
+
+# Verification
+Now check for the added customer in the 1st tab
+
+![Alt Text](http://i66.tinypic.com/51tus3.jpg)
+
