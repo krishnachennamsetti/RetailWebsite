@@ -1,5 +1,8 @@
 package com.krishna.dto;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -10,6 +13,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 
 	private static final SessionFactory sessionFactory = buildSessionFactory();
+	private static final Logger logger = LogManager.getLogger("HibernateUtil");
 
 	/**
 	 * This is a generic method used to build SessionFactory object
@@ -19,9 +23,9 @@ public class HibernateUtil {
 		try {
 			// Create the SessionFactory from hibernate.cfg.xml
 			return new Configuration().configure().buildSessionFactory();
-		} catch (Throwable exception) {
+		} catch (HibernateException exception) {
 			// Make sure you log the exception, as it might be swallowed
-			System.err.println("SessionFactory creation failed." + exception);
+			logger.info("SessionFactory creation failed." + exception);
 			throw new ExceptionInInitializerError(exception);
 		}
 	}
