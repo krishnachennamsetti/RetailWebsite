@@ -10,6 +10,7 @@
     <p:ajax event="tabChange" listener="#{landingManagedBean.onTabChange}" update=":mainForm:tab1,:mainForm:tab2,:mainForm:tab3"/>
         <p:tab title="Home">
             <h:form prependId="false" id="tab1">
+            
 	            <h:panelGrid columns="3" cellpadding="10">
 	              <h:outputText style="color:white" value="Enter the Customer ID"></h:outputText>
 	              <p:inputText id="custId" value="#{landingManagedBean.customerId}" required="true" requiredMessage="Please enter Customer ID">
@@ -17,7 +18,7 @@
 	              </p:inputText>
 	              <p:message for="custId" display="text">
 		  			  </p:message>
-	              <p:commandButton value="Search Customer" validateClient="false" action="#{landingManagedBean.onCustomerSearch}" process="@form" update="tab1"></p:commandButton>
+	              <p:commandButton id="searchBtn" value="Search Customer" validateClient="false" action="#{landingManagedBean.onCustomerSearch}" process="@form" update="tab1"></p:commandButton>
 	            </h:panelGrid>
 	            
 	            <p:panelGrid columns="2"  style="width:1500px"  rendered="#{landingManagedBean.oldCustomer}">
@@ -59,12 +60,12 @@
 				<h:panelGrid columns="2" cellpadding="10" rendered="#{landingManagedBean.billPanel}">
 		            
 		              <h:outputText style="color:white" value="Groceries Bill Amount: "></h:outputText>
-		              <p:inputText value="#{landingManagedBean.groceryAmount}">
+		              <p:inputText id="grosAmt" value="#{landingManagedBean.groceryAmount}">
 		              		<p:keyFilter regEx="/[\d\.\s,]/"/>
 		              </p:inputText>
 		              
 		              <h:outputText style="color:white" value="Non Groceries Bill Amount: "></h:outputText>
-		              <p:inputText value="#{landingManagedBean.nonGroceryAmount}">
+		              <p:inputText id="nonGrosAmt" value="#{landingManagedBean.nonGroceryAmount}">
 		                   <p:keyFilter regEx="/[\d\.\s,]/"/>
 		              </p:inputText>
 		              
@@ -78,7 +79,7 @@
         </p:tab>
         <p:tab title="Register Customer">
           <h:form prependId="false" id="tab2">
-                    <p:messages id="messages" for="regBtn" autoUpdate="false" closable="true" />
+                    <p:messages id="messages" for="regBtn" autoUpdate="true" closable="true" />
 		            <h:panelGrid columns="3" cellpadding="10">
 		            
 		              <h:outputText style="color:white" value="Customer Name: "></h:outputText>
