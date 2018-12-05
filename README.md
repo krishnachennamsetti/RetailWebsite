@@ -17,7 +17,7 @@ Validation to Enter Customer ID which is manadatory for all the customers
 
 ![Alt Text](http://i65.tinypic.com/29kxbuv.jpg)
 
-# Customer Information Summary
+# Customer Information Summary Flow
 On entering Customer ID and clicking on search it will display a panel which will show all the customer related data like his name, address,email,telephone and the segment of the customer with 2 options Bill entry or clear the search
 
 ![Alt Text](http://i66.tinypic.com/v8lvk9.jpg)
@@ -25,8 +25,10 @@ On entering Customer ID and clicking on search it will display a panel which wil
 # Bill Entry
 On Click of Bill entry option, the below form will appear where i have segregated the Customer purchases as 2 categories grocery items and non grocery items , as both have rsepective discounts for the store. On enetering amount based on purchases and generate bill it will show a popup with Bill invoice
 
-![Alt Text](http://i65.tinypic.com/b6x3xz.jpg)
+![Alt Text](http://i63.tinypic.com/m803t2.jpg)
 
-![Alt Text](http://i66.tinypic.com/23r94ph.jpg)
+![Alt Text](http://i63.tinypic.com/2nj93ly.jpg)
+
+# New Customer Registration Flow
 
 ![Alt Text](http://i66.tinypic.com/sxg9dy.jpg)
