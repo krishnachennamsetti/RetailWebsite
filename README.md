@@ -20,7 +20,7 @@ System	&	technology	used:
 7. Primefaces	6.x.x
 8. MySQL	database
 9. pom.xml	file	contains	all	the	dependencies	(as	it’s	a	maven	project)
-10.Rest services (Commented for now)
+
 
 # Credentials
 Username : admin Password : admin123
