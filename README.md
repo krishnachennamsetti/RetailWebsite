@@ -30,5 +30,6 @@ On Click of Bill entry option, the below form will appear where i have segregate
 ![Alt Text](http://i63.tinypic.com/2nj93ly.jpg)
 
 # New Customer Registration Flow
+If any new customer shops at store and Store person unable to view his details , he is having an option to register new customer for the first time purchase which is mandatory for generating bill. This can be done through Register Customer Option on the Second Tab. 
 
 ![Alt Text](http://i66.tinypic.com/sxg9dy.jpg)
