@@ -23,7 +23,6 @@ import com.krishna.service.IRetailWebsiteService;
  * @author krishnachennamsetti
  *
  */
-@SuppressWarnings("deprecation")
 @ManagedBean
 @ViewScoped
 public class LandingManagedBean implements Serializable{
@@ -49,6 +48,7 @@ public class LandingManagedBean implements Serializable{
 	private double totalAmount = 0.0;
 	private double discount = 0.0;
 	private double totalPayableAmount = 0.0;
+	private String discountPercentage = null;
 
 
 	@PostConstruct
@@ -75,7 +75,7 @@ public class LandingManagedBean implements Serializable{
 				customerHolder = customerData;
 
 			} else {
-				FacesContext.getCurrentInstance().addMessage("custId", new FacesMessage(
+				FacesContext.getCurrentInstance().addMessage("mainForm:custId", new FacesMessage(
 						"Customer not registered, Kindly register using the Register customer option in next Tab"));
 				this.oldCustomer = false;
 			}
@@ -97,20 +97,24 @@ public class LandingManagedBean implements Serializable{
 			totalAmount = groceryAmount + nonGroceryAmount;
 
 			switch (customerHolder.getCustomerType().toUpperCase()) {
-			case "STAFF":
+			case "EMPLOYEE":
                 discount = nonGroceryAmount * (0.3);
+                this.discountPercentage = "30 %";
 				break;
 				
-			case "AFFIDAVIT":
+			case "AFFILIATE":
 				discount = nonGroceryAmount * (0.1);
+				this.discountPercentage = "10 %";
 				break;
 				
 			case "CUSTOMER":
 				if(CommonUtils.getDiffYears(customerHolder.getCreatedDate(), new Date()) >=2) {
                   discount = nonGroceryAmount * (0.05);
+                  this.discountPercentage = "5 %";
                   
 				} else {
 			      discount = 0.0;
+			      this.discountPercentage = "0 %";
 				}
 				break;
 
@@ -139,7 +143,8 @@ public class LandingManagedBean implements Serializable{
      */
     private boolean doAmountValidation() {
     	if(groceryAmount <= 0 && nonGroceryAmount <= 0 ) {
-			 FacesContext.getCurrentInstance().addMessage("custId", new FacesMessage("Enter a valid amount"));
+			 FacesContext.getCurrentInstance().addMessage("mainForm:grosAmt", new FacesMessage("Enter a valid amount"));
+			 FacesContext.getCurrentInstance().addMessage("mainForm:nonGrosAmt", new FacesMessage("Enter a valid amount"));
 			 return false;
     	}
 		return true;
@@ -179,10 +184,10 @@ public class LandingManagedBean implements Serializable{
 		
 		if(null!= status && status.length()>0 && "Success".equalsIgnoreCase(status)) {
 			newCustomerHolder=new CustomerHolder();
-			FacesContext.getCurrentInstance().addMessage("regBtn", new FacesMessage("Customer Added Successfully!"));
+			FacesContext.getCurrentInstance().addMessage("mainForm:regBtn", new FacesMessage("Customer Added Successfully!"));
 
 		} else {
-			FacesContext.getCurrentInstance().addMessage("regBtn", new FacesMessage("Customer Addition failed!"));
+			FacesContext.getCurrentInstance().addMessage("mainForm:regBtn", new FacesMessage("Customer Addition failed!"));
 		}
 		
 	}
@@ -283,6 +288,14 @@ public class LandingManagedBean implements Serializable{
 
 	public void setRetailService(IRetailWebsiteService retailService) {
 		this.retailService = retailService;
+	}
+
+	public String getDiscountPercentage() {
+		return discountPercentage;
+	}
+
+	public void setDiscountPercentage(String discountPercentage) {
+		this.discountPercentage = discountPercentage;
 	}
 	
 }
