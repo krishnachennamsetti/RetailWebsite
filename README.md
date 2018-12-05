@@ -1,6 +1,30 @@
 # RetailWebsite
 This is the Flow for the Retail website Application. This application is basically used by The Store executive for discount based billing purpose and registering a new customer for the Store.
 
+# Overview
+Create Retail website Application	system	which	allows	to	do	following	operations:
+1. Login to application for Store Executive.
+2. Create new Customer.
+3. View Existing customer details.
+4. Apply Discounts based on Customer type.
+5. Bill Generation based on applied discounts.
+
+System	&	technology	used:
+
+1. Operating	System:	Mac	OSX	High	Sierra.
+2. Eclipse	Oxygen.
+3. Glassfish 5
+4. Java	8
+5. JSF	2.x
+6. Hibernate	5.x.x
+7. Primefaces	6.x.x
+8. MySQL	database
+9. pom.xml	file	contains	all	the	dependencies	(as	it’s	a	maven	project)
+10.Rest services (Commented for now)
+
+# Credentials
+Username : admin Password : admin
+
 
 # Store Executive Login
 Use the Credentials username : "admin" and password : "admin123" to . login to the application 
