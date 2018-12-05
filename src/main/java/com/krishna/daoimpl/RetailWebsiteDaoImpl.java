@@ -5,8 +5,6 @@ import javax.inject.Named;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
 import com.krishna.dao.IRetailWebsiteDao;
@@ -29,11 +27,9 @@ public class RetailWebsiteDaoImpl implements IRetailWebsiteDao {
 	 */
 	@Override
 	public String registerNewCustomer(CustomerHolder customerHolder) {
-		Session session = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			if(null!=session) {
 				session.beginTransaction();
 				CustomerDetails customer = new CustomerDetails();
 				customer.setCustomerName(customerHolder.getCustomerName());
@@ -46,9 +42,6 @@ public class RetailWebsiteDaoImpl implements IRetailWebsiteDao {
 				session.save(customer);
 				session.getTransaction().commit();
 				return "Success";
-			} else {
-				return "Failed";
-			}
 		} catch (HibernateException exception) {
 			
 			if (session.getTransaction() != null) {
@@ -73,18 +66,14 @@ public class RetailWebsiteDaoImpl implements IRetailWebsiteDao {
 
 		CustomerDetails customer = new CustomerDetails();
 
-		Session session = null;
-
+		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		try {
-			session = HibernateUtil.getSessionFactory().openSession();
-			if(null!=session) {
 				session.beginTransaction();
 				Criteria criteria = session.createCriteria(CustomerDetails.class);
 				criteria.add(Restrictions.eq("customerId",Integer.parseInt(customerId)));
 				customer = (CustomerDetails) criteria.uniqueResult();
 				session.getTransaction().commit();
-			}
 			
 		} catch (Exception exception) {
 			customer = new CustomerDetails();
