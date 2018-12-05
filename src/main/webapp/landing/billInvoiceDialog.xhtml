@@ -44,10 +44,18 @@
 		                 <f:convertNumber pattern="#0.00" />
 		            </h:outputText>
 		            
-		           
 		            <h:outputText  value="Total Amount"></h:outputText>
 		            <h:outputText value="#{landingManagedBean.totalAmount}">
 		                  <f:convertNumber pattern="#0.00" />
+		            </h:outputText>
+		            
+		            
+		            <h:outputText  value="Discount % (non-grocery items)"></h:outputText>
+		              <h:outputText value="#{landingManagedBean.discountPercentage}">
+		            </h:outputText>
+		            
+		            <h:outputText  value="Additional Discount"></h:outputText>
+		              <h:outputText value="5 $ on spent of 100 $ each on Grocery items">
 		            </h:outputText>
 		            
 		            <h:outputText  value="Discount Amount"></h:outputText>
